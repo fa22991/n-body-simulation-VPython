@@ -46,14 +46,14 @@ def plummer_sphere(a=1.0):
     vy = v_mag * np.sin(v_theta) * np.sin(v_phi)
     vz = v_mag * np.cos(v_theta)
 
-    return [[x,y,z], [vx,vy,vz]]
+    return [[x,y,z], [vx,vy,vz], Xi]
 
 
 class Star:
-    def __init__(self, pos,v):
+    def __init__(self, pos,v, m):
         self.pos = pos
         self.v = v
-        self.m = M / N
+        self.m = m
         self.p = self.m * self.v
         self.F = vector(0, 0, 0)
         self.a = self.F/self.m
@@ -85,7 +85,8 @@ for _ in range(N):
     data = plummer_sphere() 
     rt = vector(*map(float, data[0]))
     v = vector(*map(float, data[1]))
-    stars.append(Star(rt, v))
+    m = float[data[2]]
+    stars.append(Star(rt, v, m))
 
 while t < 10:
     rate(100)
