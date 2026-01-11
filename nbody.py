@@ -85,7 +85,7 @@ for _ in range(N):
     data = plummer_sphere() 
     rt = vector(*map(float, data[0]))
     v = vector(*map(float, data[1]))
-    m = float[data[2]]
+    m = float(data[2])
     stars.append(Star(rt, v, m))
 
 while t < 10:
