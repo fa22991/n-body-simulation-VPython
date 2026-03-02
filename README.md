@@ -19,9 +19,7 @@ Here, a is the scale length (Plummer radius), that is set to 1. In order to impl
 
 <img width="522" height="104" alt="image" src="https://github.com/user-attachments/assets/6d9b87af-1df0-46ba-ad1e-4df3b1d6b918" />
 
-I sample 2 uniformly random numbers x and y in the range [0,1]. For each pair, if 0.01*y < g(x), I accept q = x. This PDF is graphed below, where I reject samples like A and B, but accept P, Q and R as valid values of q. 
-
-<img width="901" height="254" alt="image" src="https://github.com/user-attachments/assets/4ce50eee-3448-4a18-8dd8-c158df351a5e" />
+I sample 2 uniformly random numbers x and y in the range [0,1]. For each pair, if 0.01*y < g(x), I accept q = x. 
 
 Since velocities are isotropic (same magnitude in all directions) I use the same method outlined above for the positions to assign random directions to the velocities. 
 
@@ -45,6 +43,7 @@ The last step is to update the positions of the stars, which I do using two clas
 The reason for this is to implement leapfrog integration. The leapfrog method solves equations of motion with a second order accuracy (which is why it is preferred over Euler's integration), by calculating velocity and position at staggered time points. First, the velocity is calculated at a half time-step, dt/2, followed by the position calculated at a full time-step dt, i.e, x and v are calculated such that they 'leapfrog' over each other. 
 
 More in-depth explanation can be found at : https://webwidewit.com/simulating-the-cosmological-n-body-problem
+
 
 
 
